@@ -99,17 +99,17 @@ alpha3
 - [ ] XL dashboard
 
 alpha4
-- [ ] ~~PoC controlling printer via Grafana~~ - PoC work but it's flawed - scrapping
+- [x] ~~PoC controlling printer via Grafana~~ - PoC work but it's flawed - scrapping
 - [ ] Mini dashboard
 
 beta1
-- [ ] ~~start testing at Raspberry Pi 4 (if not feasible then 5)~~ - not going to build Raspberry Pi image
+- [x] ~~start testing at Raspberry Pi 4 (if not feasible then 5)~~ - not going to build Raspberry Pi image
 - [ ] create tests
 - [ ] reenable tests in pipeline
 
 beta2
 - [ ] improve stability and optimize code
-- [ ] ~~finalize controlling printer via Grafana~~
+- [x] ~~finalize controlling printer via Grafana~~
 
 rc1
 - [ ] create overview dashboard for all printers in system
