@@ -93,7 +93,7 @@ alpha3
 - [x] auto enable syslog metrics
 - [x] create FAQ
 - [x] ~~check if the address from the udp and prusalink metrics are the same~~ - there is an issue in the firmware. Even though printer should sent metrics via selected network, it can sent them via ESP32 if it's connected. And vice versa - it can sent metrics via Ethernet if the ESP32 is selected as network adapter.
-- [ ] ~~compress image of print~~ - expose link to image instead
+- [x] ~~compress image of print~~ - just use Loki for image
 - [x] ~~rename udp metrics~~ - keeping old names for compatibility with metrics_handler
 - [x] check PrusaLink metrics - done by ([imax9000](https://github.com/imax9000)) 
 - [ ] XL dashboard
