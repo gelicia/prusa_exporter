@@ -1483,6 +1483,7 @@
         "x": 0,
         "y": 7
       },
+      "hideTimeOverride": true,
       "id": 2,
       "options": {
         "colorMode": "value",
@@ -1508,6 +1509,7 @@
           "exemplar": false,
           "expr": "prusa_info{printer_address=\"$printer_address\"}",
           "instant": true,
+          "interval": "",
           "legendFormat": "{{printer_job_name}}",
           "range": false,
           "refId": "A",
@@ -1517,6 +1519,7 @@
           }
         }
       ],
+      "timeFrom": "30s",
       "type": "stat"
     },
     {
@@ -2588,13 +2591,13 @@
           "type": "prometheus",
           "uid": "${ds_prometheus}"
         },
-        "definition": "label_values(prusa_up,printer_address)",
+        "definition": "label_values(prusa_up{printer_model=\"MINI\"},printer_address)",
         "label": "Printer",
         "name": "printer_address",
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(prusa_up,printer_address)",
+          "query": "label_values(prusa_up{printer_model=\"MINI\"},printer_address)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -2630,7 +2633,7 @@
   "timezone": "browser",
   "title": "Prusa Mini / Overview",
   "uid": "adkkr69",
-  "version": 45,
+  "version": 47,
   "weekStart": "",
   "id": null
 }
