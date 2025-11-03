@@ -56,7 +56,8 @@ M331 eth_in
 
 Pretty basic but nice and cozy [dashboard](docs/Prusa_Metrics_MK4_C1.json) for TV.
 
-![dashboard](docs/dashboard.png)
+![dashboard](docs/readme/dashboard.png)
+![minidashboard](docs/readme/mini_dashboard.png)
 
 # Roadmap
 
