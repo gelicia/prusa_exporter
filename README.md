@@ -189,6 +189,9 @@ And images for
 
 ### What UDP metrics are enabled by default?
 
+- side_fsensor
+- fsensor_raw
+- adj_z
 - temp_ambient
 - temp_bed
 - temp_brd
@@ -208,6 +211,7 @@ And images for
 - ttemp_noz
 - ttemp_bed
 - chamber_ttemp
+- cur_mmu_imp
 - curr_inp
 - Sandwitch5VCurrent
 - splitter_5V_current
@@ -238,3 +242,6 @@ And images for
 - heap_total
 - fsensor
 - door_sensor
+- fw_version
+- buddy_revision
+- buddy_bom
