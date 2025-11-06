@@ -66,6 +66,10 @@ I've prepared cozy [dashboards](docs/), but this being Prometheus, you can do wh
 
 PLACEHOLDER
 
+#### Prusa XL - fancy version for 5 Tools (BETA and WIP)
+
+![xl5tbetadashboard](docs/readme/xl5tbeta_dashboard.gif)
+
 #### Prusa Mini
 ![minidashboard](docs/readme/mini_dashboard.png)
 
