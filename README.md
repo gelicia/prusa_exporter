@@ -40,9 +40,7 @@ Prusa Exporter or more known as prusa_exporter is a tool that allows users to ex
 
 **UDP** is configured in printer - Settings -> Network -> Metrics & Log
 
-By default at start of the exporter it will send the configuration gcode to the printers that are configured in prusa.yml. 
-
-**BEWARE** - Altrough Prusa Mini sends some metrics via UDP as well, it's board does not contain needed sensors. So that means you are basically unable to get anything meaningful from those metrics. 
+By default at start of the exporter will send the configuration gcode to the printers that are configured in prusa.yml. The list is already prepared but you can add additional metrics by using flag `udp.extra-metrics="crash,power_panic"`. 
 
 - Host => address where prusa_exporter is running aka your computer / server
 - Metrics Port => default 8514 same as prusa_exporter but you can change it
@@ -51,24 +49,7 @@ By default at start of the exporter it will send the configuration gcode to the 
   - You can select all but it has actual impact on performance so choose wisely
 
 
-Of course you can configure metrics with gcode as well - that gcode can be found [here](docs/examples/syslog/config_full.gcode) as well. This list is not complete because there are constant changes in [Prusa-Firmware-Buddy](github.com/prusa3d/Prusa-Firmware-Buddy/)
-
-```
-M330 SYSLOG
-M334 192.168.20.20 8514
-M331 ttemp_noz
-M331 temp_noz
-M331 ttemp_bed
-M331 temp_bed
-M331 chamber_temp
-M331 temp_mcu
-M331 temp_hbr
-M331 loadcell_value
-M331 curr_inp
-M331 volt_bed
-M331 eth_out
-M331 eth_in
-```
+Of course you can configure metrics with gcode as well - that gcode can be found [here](docs/examples/syslog/config_full.gcode). This list is not complete because there are constant changes in [Prusa-Firmware-Buddy](github.com/prusa3d/Prusa-Firmware-Buddy/). 
 
 **Prusa Link** is configured with [prusa.yml](docs/config/prusa.yml) where you need to fill - Settings -> Network -> PrusaLink
 
@@ -197,6 +178,10 @@ final 2.0.0
 
 2.1.0
 - [ ] Easier deploy without internet
+- [ ] If possible - removal of printer_model in configuration
+- [ ] Move list of UDP metrics to separate file
+- [ ] Export udp enable g-code to the local filesystem
+- [ ] etc... list is not final
 
 # FAQ
 
@@ -210,7 +195,7 @@ This is correct - just click on PRINT and that's it. It's possible to technicall
 
 ### My printer has UDP metrics host set as 172.x.x.x
 
-That is because you haven't stared the docker compose with `start_docker.sh` or `start_docker.bat`. This script will export HOST_IP address and `docker-compose` will pass it into exporter.
+That is because you haven't stared the docker compose with `start_docker.sh`. This script will export HOST_IP address and `docker-compose` will pass it into exporter.
 
 ### Can I enable all UDP metrics?
 
@@ -232,6 +217,8 @@ Double check the prusa.yml for typos.
 
 At this moment it's not possible to get information what printer is running at the defined endpoint. So I don't even use this information in the code. If in the future will the information be available I'll use it to generate compatible metrics gcode and the `prusa.yml` will be bit easier to configure.
 
+However printer model is not necessary for run of the exporter itself but it is used in Grafana dashboards where you can filter by model of the printer.
+
 ### Is the docker compose production ready?
 
 Absolutely not, you can take it as example but you should properly configure Loki, Grafana and Prometheus.
@@ -247,7 +234,7 @@ Yes, I build binaries for
 Linux
 - amd64
 - arm64
-- rics64
+- risc64
 - arm
 
 macOS
@@ -266,6 +253,11 @@ And images for
 
 ### What UDP metrics are enabled by default?
 
+- active_extruder
+- bedlet_target
+- dwarfs_mcu_temp
+- dwarfs_board_temp
+- loadcell
 - side_fsensor
 - fsensor_raw
 - adj_z
