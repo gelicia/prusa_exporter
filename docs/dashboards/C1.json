@@ -88,6 +88,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": null,
   "links": [],
   "liveNow": true,
   "panels": [
@@ -1766,6 +1767,10 @@
       "pluginVersion": "12.2.1",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
           "editorMode": "code",
           "exemplar": false,
           "expr": "prusa_status_info{printer_address=\"$printer_address\"} == 4",
@@ -1773,11 +1778,7 @@
           "interval": "",
           "legendFormat": "{{printer_job_name}}",
           "range": false,
-          "refId": "A",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
+          "refId": "A"
         }
       ],
       "timeFrom": "30s",
@@ -3157,8 +3158,7 @@
   "timepicker": {},
   "timezone": "browser",
   "title": "Prusa Core One (L) / Overview",
-  "uid": "adrwl6z",
-  "version": 19,
-  "weekStart": "",
-  "id": null
+  "uid": "adrwl6zd",
+  "version": 1,
+  "weekStart": ""
 }
