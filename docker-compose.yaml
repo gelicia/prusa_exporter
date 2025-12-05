@@ -1,5 +1,3 @@
-version: "3"
-
 networks:
   prusa:
 
@@ -33,7 +31,7 @@ services:
       - prusa
 
   grafana:
-    image: grafana/grafana:10.4.1
+    image: grafana/grafana:12.0.0
     container_name: grafana
     restart: unless-stopped
     environment:
@@ -51,7 +49,7 @@ services:
       - ./docs/examples/grafana/provisioning:/var/lib/grafana/dashboards
 
   exporter:
-    image: pubeldev/prusa_exporter:v1.0.rc2
+    build: .
     container_name: exporter
     restart: unless-stopped
     volumes:

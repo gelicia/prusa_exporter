@@ -304,7 +304,7 @@ func (collector *Collector) Collect(ch chan<- prometheus.Metric) {
 
 				printerAxisZ := prometheus.MustNewConstMetric(
 					collector.printerAxis, prometheus.GaugeValue,
-					printer.Telemetry.AxisZ,
+					status.Printer.AxisZ,
 					GetLabels(s, job, "z")...)
 
 				ch <- printerAxisZ
